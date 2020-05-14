@@ -1,0 +1,14 @@
+{
+  "name": "chart-js-examples",
+  "version": "1.0.0",
+  "description": "chart playground",
+  "main": "test-chart.js",
+  "scripts": {
+    "start": "npx serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^11.3.0"
+  }
+}
