@@ -38,12 +38,7 @@ var {
   cashRatio,
   operatingCashFlowRatio,
 } = processData(boralLiquiditiyData);
-var {
-  assetTurnover,
-  inventories,
-  employeeBenefitLiabilities,
-  netOperatingAssets,
-} = processData(boralAssetTurnoverData);
+var { assetTurnover, netOperatingAssets } = processData(boralAssetTurnoverData);
 
 // Data transformation / apply formulas
 let sales = revenue.map((r, i) => r + otherIncome[i] + interestIncome[i]);
@@ -385,41 +380,6 @@ var assetTurnoverChart = new Chart(assetTurnoverChartCtx, {
     },
   },
 });
-
-function processProfitabilityData(yearData) {
-  var result = {
-    years: [],
-    sales: [],
-    operatingExpenses: [],
-    netOperatingProfitBeforeTax: [],
-    grossProfit: [],
-    grossProfitMargin: [],
-    operatingExpensesOverSales: [],
-  };
-  for (let data of yearData) {
-    let {
-      year,
-      revenue,
-      otherIncome,
-      interestIncome,
-      costOfSales,
-      sellingAndDistributionExpenses,
-      administrativeExpenses,
-      otherExpenses,
-      netOperatingProfitBeforeTax,
-    } = data;
-
-    result.years.push(year);
-    result.sales.push(sales);
-    result.operatingExpenses.push(operatingExpenses);
-    result.netOperatingProfitBeforeTax.push(netOperatingProfitBeforeTax);
-    result.grossProfit.push(grossProfit);
-    result.grossProfitMargin.push(grossProfitMargin);
-    result.operatingExpensesOverSales.push(operatingExpensesOverSales);
-  }
-
-  return result;
-}
 
 // Util
 function processData(yearsData) {
